@@ -36,6 +36,7 @@ public class MainView extends JFrame {
         departmentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 new FindView();
             }
         });
@@ -47,6 +48,7 @@ public class MainView extends JFrame {
         employeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 new AddView();
             }
         });
@@ -58,6 +60,7 @@ public class MainView extends JFrame {
         attendanceButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 new UpdateView();
             }
         });
@@ -69,6 +72,7 @@ public class MainView extends JFrame {
         userButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 new DeleteView();
             }
         });
@@ -80,6 +84,7 @@ public class MainView extends JFrame {
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 new AboutView();
             }
         });
