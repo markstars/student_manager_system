@@ -1,5 +1,7 @@
 package mao.view.update;
 
+import mao.model.Student;
+import mao.service.StudentService;
 import mao.view.mainpage.MainView;
 
 import javax.swing.*;
@@ -57,7 +59,17 @@ public class UpdateView extends JFrame{
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Student student = new Student();
+                student.setName(name.getText().trim());
+                student.setDepartment(department.getText().trim());
+                student.setHometown(hometown.getText().trim());
+                student.setSex(sex.getText().trim());
+                student.setSno(sno.getText().trim());
+                student.setSpecialty(specialty.getText().trim());
+                student.setStuclass(jlclass.getText().trim());
+                student.setTel(tel.getText().trim());
+                StudentService.updateStudent(student);
+                reset();
             }
         });
         jPanelSouth.add(updateButton);
@@ -78,5 +90,16 @@ public class UpdateView extends JFrame{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         setVisible(true);
+    }
+
+    private void reset() {
+        name.setText("");
+        department.setText("");
+        hometown.setText("");
+        sex.setText("");
+        sno.setText("");
+        specialty.setText("");
+        jlclass.setText("");
+        tel.setText("");
     }
 }

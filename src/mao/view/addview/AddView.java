@@ -1,5 +1,7 @@
 package mao.view.addview;
 
+import mao.model.Student;
+import mao.service.StudentService;
 import mao.view.mainpage.MainView;
 
 import javax.swing.*;
@@ -11,10 +13,10 @@ import java.awt.event.ActionListener;
  * @author 豪
  * @date 2018/6/20 18:37
  */
-public class AddView extends JFrame{
+public class AddView extends JFrame {
     private JPanel jPanelCenter, jPanelSouth;
     private JButton addButton, returnButton;
-    private JTextField name, sno, sex,department, hometown, tel, specialty, jlclass;
+    private JTextField name, sno, sex, department, hometown, tel, specialty, jlclass;
 
     public AddView() {
         init();
@@ -57,7 +59,17 @@ public class AddView extends JFrame{
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Student student = new Student();
+                student.setName(name.getText().trim());
+                student.setDepartment(department.getText().trim());
+                student.setHometown(hometown.getText().trim());
+                student.setSex(sex.getText().trim());
+                student.setSno(sno.getText().trim());
+                student.setSpecialty(specialty.getText().trim());
+                student.setStuclass(jlclass.getText().trim());
+                student.setTel(tel.getText().trim());
+                StudentService.addStudent(student);
+                reset();
             }
         });
         jPanelSouth.add(addButton);
@@ -71,12 +83,22 @@ public class AddView extends JFrame{
         });
         jPanelSouth.add(returnButton);
 
-        add(jPanelCenter,BorderLayout.CENTER);
+        add(jPanelCenter, BorderLayout.CENTER);
         add(jPanelSouth, BorderLayout.SOUTH);
 
-        setBounds(600,300,400,300);
+        setBounds(600, 300, 400, 300);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         setVisible(true);
+    }
+    public void reset() {
+        name.setText("");
+        department.setText("");
+        hometown.setText("");
+        sex.setText("");
+        sno.setText("");
+        specialty.setText("");
+        jlclass.setText("");
+        tel.setText("");
     }
 }

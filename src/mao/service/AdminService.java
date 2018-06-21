@@ -17,7 +17,7 @@ public class AdminService {
             if (AdminDao.isfindManager(username, password)) {
                 new MainView();
             } else {
-                JOptionPane.showMessageDialog(null, "管理员身份验证失败");
+                JOptionPane.showMessageDialog(null, "管理员身份验证失败，请重新验证身份！");
                 new LoginView();
             }
 //            }else {

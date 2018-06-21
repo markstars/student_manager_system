@@ -18,7 +18,7 @@ public class AdminDao {
 
     public static boolean isfindManager(String username, String password) {
         boolean flag = false;
-        conn = JDBCDemo.getcConnection();
+        conn = JDBCDemo.getConnection();
         String sql = "select * from admin where username=? and password=?";
         try {
             ps = conn.prepareStatement(sql);

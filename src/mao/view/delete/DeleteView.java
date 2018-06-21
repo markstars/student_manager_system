@@ -1,5 +1,6 @@
 package mao.view.delete;
 
+import mao.service.StudentService;
 import mao.view.mainpage.MainView;
 
 import javax.swing.*;
@@ -47,7 +48,9 @@ public class DeleteView extends JFrame {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                StudentService.deleteStudent(name.getText().trim(), sno.getText().trim());
+                name.setText("");
+                sno.setText("");
             }
         });
         jPanelSouth.add(deleteButton);

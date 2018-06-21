@@ -56,7 +56,7 @@ public class LoginView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                AdminService.checkManager(username.getText(),password.getText());
+                AdminService.checkManager(username.getText().trim(),password.getText().trim());
             }
         });
         jPanelSouth.add(loginButton);
@@ -77,4 +77,5 @@ public class LoginView extends JFrame {
 
         setVisible(true);
     }
+
 }

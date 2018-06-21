@@ -68,7 +68,7 @@ public class FindView extends JFrame {
         jPanelCenter.setLayout(new GridLayout(1, 1));
 
         /*// 计算有多少条记录
-        int count = 0;
+
         while(rs.next()){
             count++;
         }
@@ -76,8 +76,9 @@ public class FindView extends JFrame {
         // 将查询获得的记录数据，转换成适合生成JTable的数据形式
         Object[][] info = new Object[count][9];
         count = 0;*/
-        String[][] result = new String[][]{};
-        myTableModel = new DefaultTableModel(result, column);
+        int count = 0;
+        Object[][] info = new Object[count][9];
+        myTableModel = new DefaultTableModel(info, column);
         jTable = new JTable(myTableModel);
         DefaultTableCellRenderer cr = new DefaultTableCellRenderer();
         cr.setHorizontalAlignment(JLabel.CENTER);

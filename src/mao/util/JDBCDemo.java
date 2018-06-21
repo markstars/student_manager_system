@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author 豪
+ * @date 2018/6/21 10:46
+ */
+
 public class JDBCDemo {
     private static final String URL = "jdbc:mysql://localhost:3306/student_system";
     private static final String USER = "root";
@@ -23,7 +28,7 @@ public class JDBCDemo {
         }
     }
 
-    public static Connection getcConnection() {
+    public static Connection getConnection() {
         return conn;
     }
 
