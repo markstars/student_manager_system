@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a57d0b96-6bed-41e2-8bee-11b3be208f17" name="Default" comment="end">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mao/dao/StudentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mao/dao/StudentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mao/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mao/service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mao/view/findview/FindView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mao/view/findview/FindView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mao/view/update/UpdateView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mao/view/update/UpdateView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -91,8 +88,8 @@
       <file leaf-file-name="UpdateView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mao/view/update/UpdateView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1645">
-              <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
+            <state relative-caret-position="25">
+              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -162,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/mao/dao/AdminDao.java" />
         <option value="$PROJECT_DIR$/src/mao/util/JDBCDemo.java" />
         <option value="$PROJECT_DIR$/src/mao/view/addview/AddView.java" />
-        <option value="$PROJECT_DIR$/src/mao/view/update/UpdateView.java" />
         <option value="$PROJECT_DIR$/src/mao/view/delete/DeleteView.java" />
         <option value="$PROJECT_DIR$/src/test/Test.java" />
         <option value="$PROJECT_DIR$/src/mao/model/Student.java" />
@@ -170,6 +166,7 @@
         <option value="$PROJECT_DIR$/src/mao/service/StudentService.java" />
         <option value="$PROJECT_DIR$/src/mao/view/mainpage/MainView.java" />
         <option value="$PROJECT_DIR$/src/mao/view/findview/FindView.java" />
+        <option value="$PROJECT_DIR$/src/mao/view/update/UpdateView.java" />
       </list>
     </option>
   </component>
@@ -200,11 +197,6 @@
             <path>
               <item name="student_manager_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="student_manager_system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student_manager_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="student_manager_system" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -340,7 +332,7 @@
       <workItem from="1529540675733" duration="4877000" />
       <workItem from="1529545565278" duration="4269000" />
       <workItem from="1529560782220" duration="8434000" />
-      <workItem from="1529574932712" duration="16492000" />
+      <workItem from="1529574932712" duration="16838000" />
     </task>
     <task id="LOCAL-00001" summary="main view">
       <created>1529491296713</created>
@@ -370,14 +362,22 @@
       <option name="project" value="LOCAL" />
       <updated>1529575062001</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="end">
+      <created>1529600024162</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1529600024162</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44293000" />
+    <option name="totallyTimeSpent" value="44639000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1006,8 +1006,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mao/view/update/UpdateView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1645">
-          <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
+        <state relative-caret-position="25">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
