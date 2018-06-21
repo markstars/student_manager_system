@@ -1,5 +1,6 @@
 package mao.view.login;
 
+import mao.service.AdminService;
 import mao.view.mainpage.MainView;
 
 import javax.swing.*;
@@ -12,10 +13,12 @@ import java.awt.event.ActionListener;
  * @date 2018/6/19 22:38
  */
 public class LoginView extends JFrame {
-    private JPanel jPanelCenter, jPanelSouth,jPanelNorth;
+    private JPanel jPanelCenter, jPanelSouth, jPanelNorth;
     private JTextField username;
     private JPasswordField password;
     private JButton loginButton, resetButton;
+    private JLabel a1, a2;
+    private Container container = this.getContentPane();
 
     public LoginView() {
         init();
@@ -26,16 +29,23 @@ public class LoginView extends JFrame {
         //顶部标题
         jPanelNorth = new JPanel();
         jPanelNorth.setLayout(new FlowLayout());
-        jPanelNorth.add(new JLabel("人事资源管理系统"));
+        jPanelNorth.add(new JLabel("系统管理员登陆"));
+        container.add(jPanelNorth, "North");
 
         //中部表单
         jPanelCenter = new JPanel();
-        jPanelCenter.setLayout(new GridLayout(2, 2));
-        jPanelCenter.add(new JLabel("用户名："));
+        jPanelCenter.setLayout(null);
+        a1 = new JLabel("用户名:");
+        a1.setBounds(50, 20, 50, 30);
+        a2 = new JLabel("密    码:");
+        a2.setBounds(50, 60, 50, 30);
+        jPanelCenter.add(a1);
+        jPanelCenter.add(a2);
         username = new JTextField();
-        jPanelCenter.add(username);
-        jPanelCenter.add(new JLabel("密    码："));
         password = new JPasswordField();
+        username.setBounds(110, 20, 120, 30);
+        password.setBounds(110, 60, 120, 30);
+        jPanelCenter.add(username);
         jPanelCenter.add(password);
 
         //底部按钮
@@ -46,7 +56,7 @@ public class LoginView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new MainView();
+                AdminService.checkManager(username.getText(),password.getText());
             }
         });
         jPanelSouth.add(loginButton);
@@ -59,11 +69,12 @@ public class LoginView extends JFrame {
             }
         });
         jPanelSouth.add(resetButton);
+
+        container.add(jPanelCenter, "Center");
+        container.add(jPanelSouth, "South");
+        setBounds(600, 300, 300, 200);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        add(jPanelCenter, BorderLayout.CENTER);
-        add(jPanelSouth, BorderLayout.SOUTH);
-        add(jPanelNorth, BorderLayout.NORTH);
-        setBounds(600, 300, 300, 150);
+
         setVisible(true);
     }
 }

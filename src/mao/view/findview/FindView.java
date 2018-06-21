@@ -29,7 +29,7 @@ public class FindView extends JFrame {
     }
 
     private void init() {
-        setTitle("查询信息");
+        setTitle("查询学生信息");
 
         //头部
         jPanelNorth = new JPanel();

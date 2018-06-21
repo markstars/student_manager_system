@@ -90,7 +90,6 @@ public class MainView extends JFrame {
         });
         aboutButton.setBounds(90, 180, 100, 30);
         jPanelCenter.add(aboutButton);
-//        add(jPanelCenter, BorderLayout.CENTER);
         container.add(jPanelCenter, "Center");
         setBounds(600, 300, 300, 300);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
