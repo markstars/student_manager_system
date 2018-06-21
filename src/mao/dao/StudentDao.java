@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author 豪
@@ -61,7 +63,7 @@ public class StudentDao {
         String sql = "delete from student where name=? and sno=?";
         try {
             ps = conn.prepareStatement(sql);
-            ps.setString(1,name);
+            ps.setString(1, name);
             ps.setString(2, sno);
             ps.execute();
         } catch (SQLException e) {
@@ -71,7 +73,7 @@ public class StudentDao {
 
     public static void update(Student student) {
         conn = JDBCDemo.getConnection();
-        String sql="update student set department=?,hometown=?,sex=?,specialty=?,stuclass=?,tel=? where name=? and sno=?";
+        String sql = "update student set department=?,hometown=?,sex=?,specialty=?,stuclass=?,tel=? where name=? and sno=?";
         try {
             ps = conn.prepareStatement(sql);
             ps.setString(7, student.getName());
@@ -88,19 +90,125 @@ public class StudentDao {
         }
     }
 
-    public static int count() {
-        int count = 0;
+    public static String[][] list() {
+        String[][] result = null;
         conn = JDBCDemo.getConnection();
-        String sql = "select *from student";
+        List<Student> stus = new ArrayList<Student>();
+        int i = 0;
+
+        String sql = "select * from student";
         try {
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
             while (rs.next()) {
-                count++;
+                buildList(rs, stus, i);
+                i++;
+            }
+            if (stus.size() > 0) {
+                result = new String[stus.size()][9];
+                for (int j = 0; j < stus.size(); j++) {
+                    buildResult(result, stus, j);
+                }
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        return result;
+    }
+
+    // 将rs记录添加到list中
+    private static void buildList(ResultSet rs, List<Student> list, int i) throws SQLException {
+        Student stu = new Student();
+        stu.setId(i + 1);
+        stu.setName(rs.getString("name"));
+        stu.setDepartment(rs.getString("department"));
+        stu.setSpecialty(rs.getString("specialty"));
+        stu.setHometown(rs.getString("hometown"));
+        stu.setStuclass(rs.getString("stuclass"));
+        stu.setSex(rs.getString("sex"));
+        stu.setSno(rs.getString("sno"));
+        stu.setTel(rs.getString("tel"));
+        list.add(stu);
+    }
+
+    // 将list中记录添加到二维数组中
+    private static void buildResult(String[][] result, List<Student> stus, int j) {
+        Student stu = stus.get(j);
+        result[j][0] = String.valueOf(stu.getId());
+        result[j][1] = stu.getName();
+        result[j][2] = stu.getSno();
+        result[j][3] = stu.getSex();
+        result[j][4] = stu.getDepartment();
+        result[j][5] = stu.getHometown();
+        result[j][6] = stu.getSpecialty();
+        result[j][7] = stu.getStuclass();
+        result[j][8] = stu.getTel();
+    }
+
+    public static String[][] list(String name, String sno) {
+        String[][] result = null;
+        conn = JDBCDemo.getConnection();
+        List<Student> stus = new ArrayList<Student>();
+        int i = 0;
+
+        String sql = "select * from student where name=? and sno=?";
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, sno);
+            rs = ps.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            while (rs.next()) {
+                buildList(rs, stus, i);
+                i++;
+            }
+            if (stus.size() >= 0) {
+                result = new String[stus.size()][9];
+                for (int j = 0; j < stus.size(); j++) {
+                    buildResult(result, stus, j);
+                }
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+        return result;
+    }
+
+    public static String[][] queryByStudent(String name, String sno) {
+        conn = JDBCDemo.getConnection();
+        String[][] result = null;
+        if (name.length() < 0) {
+            return result;
+        }
+        List<Student> stus = new ArrayList<Student>();
+        int i = 0;
+        String sql = "select * from student where name=? and sno=?";
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, sno);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                buildList(rs, stus, i);
+                i++;
+            }
+            if (stus.size() >= 0) {
+                result = new String[stus.size()][9];
+                for (int j = 0; j < stus.size(); j++) {
+                    buildResult(result, stus, j);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return count;
+        return result;
     }
 }
