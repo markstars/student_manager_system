@@ -2,6 +2,7 @@ package mao.service;
 
 import mao.dao.StudentDao;
 import mao.model.Student;
+
 import javax.swing.*;
 
 /**
@@ -38,13 +39,13 @@ public class StudentService {
 
     public static String[][] findOneStudent(String name, String sno) {
         if (("".equals(name) || name == null) && ("".equals(sno) || sno == null)) {
+            JOptionPane.showMessageDialog(null, "请输入数据！");
+        } else {
             if (StudentDao.isStudent(name, sno)) {
                 StudentDao.queryByStudent(name, sno);
             } else {
                 JOptionPane.showMessageDialog(null, "数据库不存在该学生信息,查询失败");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "请输入数据！");
         }
         return StudentDao.queryByStudent(name, sno);
     }
