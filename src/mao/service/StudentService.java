@@ -11,29 +11,41 @@ import javax.swing.*;
  */
 public class StudentService {
     public static void addStudent(Student student) {
-        if (!(StudentDao.isStudent(student.getName(), student.getSno()))) {
-            StudentDao.add(student);
-            JOptionPane.showMessageDialog(null, "数据库录入成功");
+        if (((student.getName()).equals("") && ((student.getSno()).equals("")))) {
+            JOptionPane.showMessageDialog(null, "数据录入失败，请先输入姓名和学号");
         } else {
-            JOptionPane.showMessageDialog(null, "数据库已经存在该学生信息，数据录入失败");
+            if (!(StudentDao.isStudent(student.getName(), student.getSno()))) {
+                StudentDao.add(student);
+                JOptionPane.showMessageDialog(null, "数据库录入成功");
+            } else {
+                JOptionPane.showMessageDialog(null, "数据库已经存在该学生信息，数据录入失败");
+            }
         }
     }
 
     public static void updateStudent(Student student) {
-        if (StudentDao.isStudent(student.getName(), student.getSno())) {
-            StudentDao.update(student);
-            JOptionPane.showMessageDialog(null, "数据库更新成功");
+        if (((student.getName()).equals("") && ((student.getSno()).equals("")))) {
+            JOptionPane.showMessageDialog(null, "数据更新失败，请先输入姓名和学号");
         } else {
-            JOptionPane.showMessageDialog(null, "数据库不存在该学生信息，数据更新失败");
+            if (StudentDao.isStudent(student.getName(), student.getSno())) {
+                StudentDao.update(student);
+                JOptionPane.showMessageDialog(null, "数据库更新成功");
+            } else {
+                JOptionPane.showMessageDialog(null, "数据库不存在该学生信息，数据更新失败");
+            }
         }
     }
 
     public static void deleteStudent(String name, String sno) {
-        if (StudentDao.isStudent(name, sno)) {
-            StudentDao.delete(name, sno);
-            JOptionPane.showMessageDialog(null, "数据删除成功");
+        if (((name.equals("")) && (sno.equals("")))) {
+            JOptionPane.showMessageDialog(null, "请先输入姓名和学号");
         } else {
-            JOptionPane.showMessageDialog(null, "数据库不存在该学生信息，数据删除失败");
+            if (StudentDao.isStudent(name, sno)) {
+                StudentDao.delete(name, sno);
+                JOptionPane.showMessageDialog(null, "数据删除成功");
+            } else {
+                JOptionPane.showMessageDialog(null, "数据库不存在该学生信息，数据删除失败");
+            }
         }
     }
 
